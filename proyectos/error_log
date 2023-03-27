@@ -1,0 +1,24 @@
+[27-Mar-2023 09:37:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php:25
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php(25): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/index.php(128): require('/home/doqxqqul/...')
+#2 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php on line 25
+[27-Mar-2023 10:49:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php:25
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php(25): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/index.php(128): require('/home/doqxqqul/...')
+#2 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php on line 25
+[27-Mar-2023 10:49:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php:25
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php(25): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/index.php(128): require('/home/doqxqqul/...')
+#2 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php on line 25
+[27-Mar-2023 10:49:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php:25
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php(25): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/index.php(128): require('/home/doqxqqul/...')
+#2 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/proyectos/includes/config/database.php on line 25

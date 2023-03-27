@@ -1,0 +1,5 @@
+[27-Mar-2023 11:02:42 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function insertar_subvencion(), 0 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/pruebasfunciones.php on line 5 and exactly 7 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:6
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/pruebasfunciones.php(5): insertar_subvencion()
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 6

@@ -1,0 +1,63 @@
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    margin: 50px auto;
+}
+
+h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label {
+    color: #333;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"],
+input[type="number"] {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    background-color: #fff;
+    border: 2px solid #21c287;
+    box-shadow: 0px 0px 5px rgba(33, 194, 135, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #21c287;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button[type="submit"]:hover {
+    background-color: #1c9e73;
+    cursor: pointer;
+    transform: translateY(-2px);
+}
