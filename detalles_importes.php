@@ -6,8 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-
 </head>
 
 <body>
@@ -90,7 +88,7 @@ Creamos la tabla con los campos de las series y despues un foreach para escribir
         <div class="container-fluid">
             <form method="POST">
                 <div class="form-group">
-                    <a class="btn btn-warning mt-3 mb-3" href="./includes/templates/modificar_subvencion.php?id_serie=<?= $columna['id_serie'] ?>" role="button">Modificar subvención</a>
+                    <a class="btn btn-warning mt-3 mb-3" href="./includes/templates/modificar_subvencion.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button">Modificar subvención</a>
                     <a class="btn btn-success mt-3 mb-3" href="index.php" role="button">Ver subvenciones</a>
                 </div>
             </form>

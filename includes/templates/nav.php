@@ -8,6 +8,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Panel de Control</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Usuario</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-table"></i><span>Subvenciones</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-table"></i><span>Proyectos</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Acceder</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Registrar</span></a></li>
                 </ul>
@@ -34,7 +35,7 @@
 
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small">Nombre usuario</span><img class="border rounded-circle img-profile" src=""></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small">Ayuntamiento de Mengíbar</span><img class="border rounded-circle img-profile" src="assets/img/logo_escudo.png"></a>
                                 </div>
                             </li>
                         </ul>

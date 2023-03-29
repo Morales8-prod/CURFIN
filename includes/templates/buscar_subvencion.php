@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Recoger variables y validar la entrada
     $buscar = filter_input(INPUT_POST, 'buscar', FILTER_SANITIZE_STRING);
-    $id_serie = filter_input(INPUT_POST, 'id_serie', FILTER_VALIDATE_INT);
+    $id_subvencion = filter_input(INPUT_POST, 'id_subvenciones', FILTER_VALIDATE_INT);
 
     if (!$buscar) {
         die('<p class="m-3">Error: El término de búsqueda no es válido.</p>');
@@ -18,9 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require 'includes/config/database.php';
 
     // Preparar la consulta con valores vinculados
-    $miConsulta = $miPDO->prepare("SELECT * FROM series WHERE titulo LIKE :buscar");
+    $miConsulta = $miPDO->prepare("SELECT * FROM subvenciones WHERE descripcion_subvenciones LIKE :buscar");
     $miConsulta->bindValue(':buscar', "%$buscar%", PDO::PARAM_STR);
-
     // Ejecutar la consulta y manejar los errores
     try {
         $miConsulta->execute();
@@ -52,13 +51,13 @@ if ($resultados_buscar) {
 
     foreach ($resultados_buscar as $columna_resultados) {
         echo '<tr>';
-        echo '<td class="col-1 align-middle">' . htmlspecialchars($columna_resultados['id_serie'], ENT_QUOTES, 'UTF-8') . '</td>';
-        echo '<td class="col-1 align-middle">' . htmlspecialchars($columna_resultados['id_serie'], ENT_QUOTES, 'UTF-8') . '</td>';
-        echo '<td class="align-middle">' . htmlspecialchars($columna_resultados['titulo'], ENT_QUOTES, 'UTF-8') . '</td>';
-        echo '<td><a class="btn btn-light" href="./detalles_importes.php?id_serie=' . htmlspecialchars($columna_resultados['id_serie'], ENT_QUOTES, 'UTF-8') . '" role="button">Detalles</a></td>';
-        echo '<td><a class="btn btn-light" href="./detalles_fechas.php?id_serie=' . htmlspecialchars($columna_resultados['id_serie'], ENT_QUOTES, 'UTF-8') . '" role="button">Detalles</a></td>';
-        echo '<td class="col-1"><a class="btn btn-warning text-dark" href="includes/templates/modificar_subvencion.php?id_serie=' . htmlspecialchars($columna_resultados['id_serie'], ENT_QUOTES, 'UTF-8') . '" role="button">Modificar</a></td>';
-        echo '<td class="col-1"><a class="btn btn-danger" href="includes/templates/eliminar_subvencion.php?id_serie=' . htmlspecialchars($columna_resultados['id_serie'], ENT_QUOTES, 'UTF-8') . '" role="button">Eliminar</a></td>';
+        echo '<td class="col-1 align-middle">' . htmlspecialchars($columna_resultados['id_subvenciones'], ENT_QUOTES, 'UTF-8') . '</td>';
+        echo '<td class="col-1 align-middle">' . htmlspecialchars($columna_resultados['id_subvenciones'], ENT_QUOTES, 'UTF-8') . '</td>';
+        echo '<td class="align-middle">' . htmlspecialchars($columna_resultados['descripcion_subvenciones'], ENT_QUOTES, 'UTF-8') . '</td>';
+        echo '<td><a class="btn btn-light" href="./detalles_importes.php?id_subvenciones=' . htmlspecialchars($columna_resultados['id_subvenciones'], ENT_QUOTES, 'UTF-8') . '" role="button">Detalles</a></td>';
+        echo '<td><a class="btn btn-light" href="./detalles_fechas.php?id_subvenciones=' . htmlspecialchars($columna_resultados['id_subvenciones'], ENT_QUOTES, 'UTF-8') . '" role="button">Detalles</a></td>';
+        echo '<td class="col-1"><a class="btn btn-warning text-dark" href="includes/templates/modificar_subvencion.php?id_subvenciones=' . htmlspecialchars($columna_resultados['id_subvenciones'], ENT_QUOTES, 'UTF-8') . '" role="button">Modificar</a></td>';
+        echo '<td class="col-1"><a class="btn btn-danger" href="includes/templates/eliminar_subvenciones.php?id_subvencion=' . htmlspecialchars($columna_resultados['id_subvenciones'], ENT_QUOTES, 'UTF-8') . '" role="button">Eliminar</a></td>';
         echo '</tr>';
     }
 

@@ -35,3 +35,110 @@ Stack trace:
 [27-Mar-2023 11:43:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 33
 [27-Mar-2023 11:43:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 33
 [27-Mar-2023 11:44:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 33
+[27-Mar-2023 11:45:16 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 33
+[27-Mar-2023 11:55:19 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php on line 49
+[27-Mar-2023 12:11:03 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 34
+[27-Mar-2023 12:12:04 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 37
+[27-Mar-2023 12:12:17 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 37
+[27-Mar-2023 12:13:52 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 37
+[27-Mar-2023 12:14:03 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 37
+[27-Mar-2023 12:17:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 39
+[27-Mar-2023 12:19:12 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 34
+[27-Mar-2023 12:24:33 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 14
+[27-Mar-2023 12:29:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 34
+[27-Mar-2023 12:31:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 34
+[27-Mar-2023 12:35:03 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php:1) in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php on line 34
+[27-Mar-2023 12:47:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mostrar_subvencion() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php on line 23
+[27-Mar-2023 12:49:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:20
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php(25): mostrar_subvencion('17', Object(PDO))
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 20
+[28-Mar-2023 09:58:13 UTC] PHP Warning:  require(funciones.php): failed to open stream: No such file or directory in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 74
+[28-Mar-2023 09:58:13 UTC] PHP Warning:  require(funciones.php): failed to open stream: No such file or directory in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 74
+[28-Mar-2023 09:58:13 UTC] PHP Fatal error:  require(): Failed opening required 'funciones.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 74
+[28-Mar-2023 10:05:40 UTC] PHP Warning:  require(funciones.php): failed to open stream: No such file or directory in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 74
+[28-Mar-2023 10:05:40 UTC] PHP Warning:  require(funciones.php): failed to open stream: No such file or directory in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 74
+[28-Mar-2023 10:05:40 UTC] PHP Fatal error:  require(): Failed opening required 'funciones.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 74
+[28-Mar-2023 11:40:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:6
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/crear_subvencion.php(31): insertar_subvencion('Subvencion cult...', 'Ayuntamiento Gr...', 'Junta', '1343', NULL, Object(PDO))
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 6
+[28-Mar-2023 11:42:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:17
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php(23): mostrar_subvencion('21', Object(PDO))
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 17
+[28-Mar-2023 11:42:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:17
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/modificar_subvencion.php(23): mostrar_subvencion('21', Object(PDO))
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 17
+[28-Mar-2023 11:56:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function cambiar_fase_provisional() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 67
+[28-Mar-2023 12:16:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function cambiar_fase_provisional() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 67
+[28-Mar-2023 12:23:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function cambiar_fase_justificada() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php:85
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 85
+[28-Mar-2023 12:28:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function cambiar_fase_justificada() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php:85
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 85
+[28-Mar-2023 12:30:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function cambiar_fase_provisional() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 67
+[28-Mar-2023 12:32:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function cambiar_fase_provisional() in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 67
+[28-Mar-2023 12:37:14 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_presentada(), 4 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 58 and exactly 5 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:157
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(58): cambio_fase_presentada(Object(PDO), '2023-03-10', '7', 'juanjo')
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 157
+[28-Mar-2023 12:40:42 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_presentada(), 4 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 58 and exactly 5 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:157
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(58): cambio_fase_presentada(Object(PDO), '2023-03-18', '6', 'juanjo')
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 157
+[29-Mar-2023 06:53:53 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_presentada(), 4 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 58 and exactly 5 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:162
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(58): cambio_fase_presentada(Object(PDO), '2023-03-29', '15973', 'Junta')
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 162
+[29-Mar-2023 07:00:33 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_presentada(), 4 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 58 and exactly 5 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:162
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(58): cambio_fase_presentada(Object(PDO), '2023-03-28', '1000', '2021/2023')
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 162
+[29-Mar-2023 07:04:47 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_definitiva(), 3 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 75 and exactly 4 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:168
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(75): cambio_fase_definitiva(Object(PDO), '3000', NULL)
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 168
+[29-Mar-2023 07:19:05 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_definitiva(), 3 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 75 and exactly 4 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:174
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(75): cambio_fase_definitiva(Object(PDO), '66', NULL)
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 174
+[29-Mar-2023 07:19:32 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_definitiva(), 3 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 75 and exactly 4 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:173
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(75): cambio_fase_definitiva(Object(PDO), '66', NULL)
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 173
+[29-Mar-2023 07:31:05 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cambio_fase_presentada(), 4 passed in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php on line 58 and exactly 5 expected in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php:175
+Stack trace:
+#0 /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/templates/estado_subvencion.php(58): cambio_fase_presentada(Object(PDO), '2023-03-11', '88', '')
+#1 {main}
+  thrown in /home/doqxqqul/public_html/curfin.cursosinfin.com/includes/funciones.php on line 175

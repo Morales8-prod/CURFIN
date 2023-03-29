@@ -7,11 +7,12 @@
     <title>Subvenciones</title>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- FUENTES DE GOOGLE -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
     <!-- DATA TABLE -->
-    <link rel href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
     <style type="text/css">
         /* Chart.js */
         @keyframes chartjs-render-animation {
@@ -125,13 +126,13 @@
 
                         <?php
 
-                        require 'includes/config/database.php';
+                        require '../includes/config/database.php';
 
                         // ------------- INCIO RECOGEMOS LOS DATOS DE TODAS LAS SUBVENCIONES Y LOS GUARDO EN $resultados -----------
 
                         // Prepara SELECT
 
-                        $miConsulta = $miPDO->prepare('SELECT * FROM series ORDER BY id_serie ASC;');
+                        $miConsulta = $miPDO->prepare('SELECT * FROM subvenciones ORDER BY id_subvenciones ASC;');
 
                         //Ejecuta consulta
 
@@ -152,7 +153,7 @@
                     </div>
                     <div class="row">
                         <div class="container-fluid">
-                            <table id="tablaDinamica" class="table table-bordered table-hover">
+                            <table id="tablaDinamica" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-1 bg-secondary text-light align-middle">Id. Sub.</th>
@@ -168,16 +169,16 @@
                                 <tbody>
                                     <?php foreach ($resultados as $posicion => $columna) : ?>
                                         <tr>
-                                            <td class="col-1 align-middle"><?= $columna['id_serie'] ?></td>
-                                            <td class="col-1 align-middle"><?= $columna['id_serie'] ?></td>
-                                            <td class="col-7 align-middle"><?= $columna['titulo'] ?></td>
-                                            <td class="col-1 align-middle"><?= $columna['nota'] ?></td>
-                                            <td class="col-1 align-middle"><?= $columna['nota'] ?></td>
-                                            <td class="d-none d-sm-table-cell align-middle">
-                                                <a class="btn btn-warning text-dark" href="./modificar.php?id_serie=<?= $columna['id_serie'] ?>" role="button">Modificar</a>
+                                            <td class="col-1 align-middle"><?= $columna['id_subvenciones'] ?></td>
+                                            <td class="col-1 align-middle"><?= $columna['id_proyectos'] ?></td>
+                                            <td class="col-7 align-middle"><?= $columna['descripcion_subvenciones'] ?></td>
+                                            <td class="col-1 align-middle"><?= $columna['importe_proyecto'] ?></td>
+                                            <td class="col-1 align-middle"><?= $columna['cofinanciacion'] ?></td>
+                                            <td class="d-none d-sm-table-cell align-middle text-center">
+                                                <a class="btn btn-warning text-dark align middle" href="./modificar.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button">Modificar</a>
                                             </td>
-                                            <td class="d-none d-sm-table-cell align-middle">
-                                                <a class="btn btn-danger" href="./eliminar.php?id_serie=<?= $columna['id_serie'] ?>" role="button">Ocultar</a>
+                                            <td class="d-none d-sm-table-cell align-middle text-center">
+                                                <a class="btn btn-danger align middle" href="./eliminar.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button">Ocultar</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -198,10 +199,10 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/chart.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/theme.js"></script>
 
 
 </body>
