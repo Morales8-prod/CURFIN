@@ -8,8 +8,9 @@
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- FUENTES DE GOOGLE -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"> -->
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <!-- DATA TABLE -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
@@ -69,128 +70,204 @@
 
     <?php include 'includes/templates/nav.php' ?>
 
-    <!----------------------------- INICIO BOTÓN AÑADIR SUBVENCIÓN Y BOTÓN VER PROYECTOS --------------------------------->
+    <!--- BIENVENIDO ------>
 
-    <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Subvenciones</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generar Informe</a>
-        </div>
-        <div class="row">
-            <div class="container-fluid">
-                <form method="POST">
-                    <div class="form-group">
-                        <a class="btn btn-primary mt-3 mb-3" href="./includes/templates/crear_subvencion.php" role="button">Añadir subvención</a>
-                        <a class="btn btn-success mt-3 mb-3" href="./proyectos/index.php" role="button">Ver proyectos</a>
-                        <?php include 'includes/templates/buscar_subvencion.php';
-                        if ($resultados_buscar) {
-                            echo '<a class="btn btn-light border-dark mt-3 mb-3" href="./index.php" role="button">Limpiar pantalla</a>';
-                        }; ?>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="text-center">Bienvenido al Panel de Control de Subvenciones</h1>
+                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
-
-        <!---------------------------- FIN BOTÓN AÑADIR SUBVENCIÓN Y CAMPO BUSCAR SUBVENCIÓN ------------------------------>
-
-        <!------------------------------------------- REQUIERO BASE DE DATOS ---------------------------------------------->
-
-        <?php
-
-        require 'includes/config/database.php';
-
-        include 'includes/funciones.php';
-
-        $resultados = mostrar_subvenciones($miPDO);
-
-        // --------------- FIN RECOGEMOS LOS DATOS DE LAS SUBVENCIONES Y LOS GUARDO EN $resultados -----------------
-
-        ?>
-
-        <!------------------------------------ INICIO TABLA CON DATOS DE $resultados --------------------------------
-        
-        Creamos la tabla con los campos de las subvenciones y despues un foreach para escribir las filas ----------->
-
-        <div class="row">
-            <div class="container-fluid">
-                <div class="table-responsive">
-                    <table id="tablaDinamica" class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <!-- <th class="col-1 bg-secondary text-light align-middle">Id. Sub.</th>
-                                <th class="col-1 bg-secondary text-light align-middle">Id. Proy.</th> -->
-                                <th class="col-5 bg-secondary text-light align-middle">Descripción</th>
-                                <th class="d-none col-1 bg-secondary text-light text-center align-middle">Importe concedido</th>
-                                <th class="col-1 bg-secondary text-light text-center align-middle">Importe concedido</th>
-                                <th class="col-1 bg-secondary text-light text-center align-middle">Organismo</th>
-                                <th class="col-2 bg-secondary text-light text-center align-middle">Estado</th>
-                                <th class="col-2 bg-secondary text-light text-center align-middle">Cambiar fase</th>
-                                <th class="col-2 bg-secondary text-light text-center align-middle">Acción</th>
-                                <th class="col-2 bg-secondary text-light text-center align-middle">Acción</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php foreach ($resultados as $posicion => $columna) { ?>
-                                <tr class='<?php echo color_estado($miPDO, $columna["id_subvenciones"]); ?>'>
-                                    <td class="align-middle"><?= $columna['descripcion_subvenciones'] ?></td>
-                                    <td class="d-none text-end align-middle"><?= $columna['importe_concedido'] ?></td>
-                                    <td class="text-end align-middle"><?= $columna['ImporteConcedido_formt'] ?></td>
-                                    <td class="text-center align-middle"><?= $columna['tipo_de_organismo'] ?></td>
-                                    <td class="text-center align-middle"><?= $columna['estado_subvencion'] ?></td>
-                                    <td class="align-middle">
-                                        <form action="./includes/templates/estado_subvencion.php" method="GET">
-                                            <div class="input-group">
-                                                <select class="form-control" aria-label="Estado de la subvencion" name="estado_subvencion" id="estado_subvencion" required>
-                                                    <option value="Planteada">Planteada</option>
-                                                    <option value="Presentada">Presentada</option>
-                                                    <option value="Provisional">Provisional</option>
-                                                    <option value="Definitiva">Definitiva</option>
-                                                    <option value="Justificada">Justificada</option>
-                                                </select>
-                                                <span class="input-group-btn">
-                                                    <input name="id_subvenciones" type="hidden" value='<?php echo $columna['id_subvenciones']; ?>' />
-                                                    <button type="submit" class="btn btn-outline-success btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
-                                                            <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z" />
-                                                        </svg></button>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="text-primary fw-bold m-0">Información General</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xl-3 mb-4">
+                                            <div class="card shadow border-start-primary py-2">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center no-gutters">
+                                                        <div class="col mr-2">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Número de Subvenciones</span></div>
+                                                            <div class="text-dark fw-bold h5 mb-0"><span>215</span></div>
+                                                        </div>
+                                                        <div class="col-auto"><i class="fas fa-chart-bar fa-2x text-gray-300"></i></div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </form>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a class="btn btn-warning text-dark align-middle text-center" href="./includes/templates/modificar_subvencion.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button">
-                                            Modificar
-                                        </a>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a class="btn btn-danger align-middle text-center" href="./includes/templates/eliminar_subvencion.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button">
-                                            Ocultar
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+                                        </div>
+                                        <div class="col-md-6 col-xl-3 mb-4">
+                                            <div class="card shadow border-start-primary py-2">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center no-gutters">
+                                                        <div class="col mr-2">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Número de Proyectos</span></div>
+                                                            <div class="text-dark fw-bold h5 mb-0"><span>102</span></div>
+                                                        </div>
+                                                        <div class="col-auto"><i class="fas fa-project-diagram fa-2x text-gray-300"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xl-3 mb-4">
+                                            <div class="card shadow border-start-primary py-2">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center no-gutters">
+                                                        <div class="col mr-2">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Subvenciones Aprobadas</span></div>
+                                                            <div class="text-dark fw-bold h5 mb-0"><span>78</span></div>
+                                                        </div>
+                                                        <div class="col-auto"><i class="fas fa-thumbs-up fa-2x text-gray-300"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xl-3 mb-4">
+                                            <div class="card shadow border-start-primary py-2">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center no-gutters">
+                                                        <div class="col mr-2">
+                                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Subvenciones Denegadas</span></div>
+                                                            <div class="text-dark fw-bold h5 mb-0"><span>25</span></div>
+                                                        </div>
+                                                        <div class="col-auto"><i class="fas fa-thumbs-down fa-2x text-gray-300"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!----------------------------- INICIO BOTÓN AÑADIR SUBVENCIÓN Y BOTÓN VER PROYECTOS --------------------------------->
 
-    <!----------------------------------------------------------- INICIO FOOTER --------------------------------------------->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <form method="POST">
+                                                        <div class="form-group">
+                                                            <a class="btn btn-primary mt-3 mb-3" href="./includes/templates/crear_subvencion.php" role="button">Añadir subvención</a>
+                                                            <a class="btn btn-success mt-3 mb-3" href="./proyectos/index.php" role="button">Ver proyectos</a>
+                                                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                                                <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generar Informe</a>
+                                                            </div>
+                                                            <?php include 'includes/templates/buscar_subvencion.php';
+                                                            if ($resultados_buscar) {
+                                                                echo '<a class="btn btn-light border-dark mt-3 mb-3" href="./index.php" role="button">Limpiar pantalla</a>';
+                                                            }; ?>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
 
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright">
-                <p>© <?php echo date('Y'); ?> Todos los derechos reservados</p>
-            </div>
-        </div>
-    </footer>
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/theme.js"></script>
-    </footer>
+                                            <!---------------------------- FIN BOTÓN AÑADIR SUBVENCIÓN Y CAMPO BUSCAR SUBVENCIÓN ------------------------------>
 
-    <!----------------------------------------------------------- FIN FOOTER --------------------------------------------->
+                                            <!------------------------------------------- REQUIERO BASE DE DATOS ---------------------------------------------->
+
+                                            <?php
+
+                                            require 'includes/config/database.php';
+
+                                            include 'includes/funciones.php';
+
+                                            $resultados = mostrar_subvenciones($miPDO);
+
+
+                                            // --------------- FIN RECOGEMOS LOS DATOS DE LAS SUBVENCIONES Y LOS GUARDO EN $resultados -----------------
+
+                                            ?>
+
+                                            <!------------------------------------ INICIO TABLA CON DATOS DE $resultados --------------------------------
+
+Creamos la tabla con los campos de las subvenciones y despues un foreach para escribir las filas ----------->
+
+                                            <div class="row">
+                                                <div style="font-size:0.8rem" class="d-flex flex-wrap justify-content-between mb-3 fw-light">
+                                                    <div><span style="color:#AAECFF">&#9632 <span class=text-dark>Estado subvención justificada </span></span></div>
+                                                    <div><span style="color:#AAFFBE">&#9632 <span class=text-dark>Estado subvención definitiva </span></span></div>
+                                                    <div><span class="text-danger">&#9632 <span class=text-dark>Plazo justificación subvención </span></span></div>
+                                                    <div><span class="text-warning">&#9632 <span class=text-dark>Aviso presentar subvención </span></span></div>
+                                                    <div><span class="text-dark">&#9632 <span class=text-dark>Aviso espera subvención </span></span></div>
+                                                </div>
+                                                <div class="container-fluid">
+                                                    <div class="table-responsive">
+                                                        <table id="tablaDinamica" class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="d-none col-1 bg-secondary text-light align-middle">Id. Sub.</th>
+                                                                    <!-- <th class="col-1 bg-secondary text-light align-middle">Id. Proy.</th> -->
+                                                                    <th class="col-4 col-lg-6 bg-secondary text-light align-middle">Descripción</th>
+                                                                    <th class="d-none col-1 bg-secondary text-light text-center align-middle">Importe concedido</th>
+                                                                    <th class="col-1 bg-secondary text-light text-center align-middle">Importe concedido</th>
+                                                                    <th class="col-2 col-lg-2 bg-secondary text-light text-center align-middle">Organismo</th>
+                                                                    <th class="col-1 bg-secondary text-light text-center align-middle">Estado</th>
+                                                                    <th class="col-2 col-md-3 bg-secondary text-light text-center align-middle">Cambiar fase</th>
+                                                                    <th class="col-1 bg-secondary text-light text-center align-middle">Acción</th>
+                                                                    <th class="col-1 bg-secondary text-light text-center align-middle">Acción</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                <?php foreach ($resultados as $posicion => $columna) { ?>
+                                                                    <tr style='<?= color_estado($miPDO, $columna["id_subvenciones"]); ?>'>
+                                                                        <td class="d-none align-middle"><?= $columna['id_subvenciones'] ?></td>
+                                                                        <td class="align-middle p-0"><a class='<?= color_estado($miPDO, $columna["id_subvenciones"]) . ' '; ?> text-decoration-none' href='includes/templates/detalles_subvencion.php?id_subvenciones=<?= $columna["id_subvenciones"]; ?>'>
+                                                                                <div class="p-2 text-dark"><?= $columna['descripcion_subvenciones'] ?></div>
+                                                                            </a></td>
+                                                                        <td class="d-none text-end align-middle"><?= $columna['importe_concedido'] ?></td>
+                                                                        <td class="text-end align-middle"><?= $columna['ImporteConcedido_formt'] ?></td>
+                                                                        <td class="text-center align-middle"><?= $columna['tipo_de_organismo'] ?></td>
+                                                                        <td class="text-center align-middle"><?= $columna['estado_subvencion'] ?></td>
+                                                                        <td class="align-middle">
+                                                                            <form action="./includes/templates/estado_subvencion.php" method="GET">
+                                                                                <div class="input-group">
+                                                                                    <select class="form-control" aria-label="Estado de la subvencion" name="estado_subvencion" id="estado_subvencion" required>
+                                                                                        <?php $estado_select = array_fases($miPDO, $columna['id_subvenciones']);
+                                                                                        foreach ($estado_select as $fase) {
+                                                                                            echo '<option value="' . $fase . '" >' . $fase . ' </option>';
+                                                                                        } ?>
+                                                                                    </select>
+                                                                                    <span class="input-group-btn">
+                                                                                        <input name="id_subvenciones" type="hidden" value='<?php echo $columna['id_subvenciones']; ?>' />
+                                                                                        <button type="submit" class="btn btn-outline-success btn-sm"><i class="bi bi-hand-thumbs-up-fill"></i></button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </td>
+                                                                        <td class="align-middle text-center">
+                                                                            <a class="btn btn-warning text-dark align-middle text-center" href="./includes/templates/modificar_subvencion.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button"><i class="bi bi-pen"></i></a>
+                                                                        </td>
+                                                                        <td class="align-middle text-center">
+                                                                            <a class="btn btn-danger align-middle text-center" href="./includes/templates/eliminar_subvencion.php?id_subvenciones=<?= $columna['id_subvenciones'] ?>" role="button"><i class="bi bi-trash"></i></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!----------------------------------------------------------- INICIO FOOTER --------------------------------------------->
+
+                                        <footer class="bg-white sticky-footer">
+                                            <div class="container my-auto">
+                                                <div class="text-center my-auto copyright">
+                                                    <p>© <?php echo date('Y'); ?> Todos los derechos reservados</p>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+                                </div>
+                                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+                                <script src="assets/js/chart.min.js"></script>
+                                <script src="assets/js/bs-init.js"></script>
+                                <script src="assets/js/theme.js"></script>
+                                </footer>
+
+                                <!----------------------------------------------------------- FIN FOOTER --------------------------------------------->
 
 
 </body>

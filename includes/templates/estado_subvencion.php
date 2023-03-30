@@ -49,13 +49,14 @@ window.location.href = '../../index.php';
         $importe_concedido = isset($_REQUEST['importe_concedido']) ? $_REQUEST['importe_concedido'] : null;
         $importe_justificada = isset($_REQUEST['importe_justificada']) ? $_REQUEST['importe_justificada'] : null;
         $fecha_justificada = isset($_REQUEST['fecha_justificada']) ? $_REQUEST['fecha_justificada'] : null;
+        $fecha_justificacion = isset($_REQUEST['fecha_justificacion']) ? $_REQUEST['fecha_justificacion'] : null;
         $fecha_definitiva = isset($_REQUEST['fecha_definitiva']) ? $_REQUEST['fecha_definitiva'] : null;
 
         switch($estado_subvencion){
 
             case "Presentada":
 
-                cambio_fase_presentada($miPDO,$fecha_presentada,$importe_solicitado,$expediente_gestion);
+                cambio_fase_presentada($miPDO,$fecha_presentada,$importe_solicitado,$expediente_gestion,$id_subvenciones);
 
                 echo "<script type='text/javascript'>
                 window.location.href = '../../index.php';
@@ -75,9 +76,8 @@ window.location.href = '../../index.php';
 
             case "Definitiva":
 
-                if(cambio_fase_definitiva($miPDO,$importe_concedido,$fecha_provisional)){
-                    echo "hola";
-                }
+                cambio_fase_definitiva($miPDO,$importe_concedido,$fecha_justificacion,$id_subvenciones,$fecha_definitiva);
+   
 
                 echo "<script type='text/javascript'>
                 window.location.href = '../../index.php';
@@ -191,8 +191,8 @@ window.location.href = '../../index.php';
             <div class="row g-3 mt-3">
 
                 <div class="col-md-4 col-6">
-                    <label for="fecha_justificada" class="form-label">Fecha justificada</label>
-                    <input type="date" id="fecha_justificada" name="fecha_justificada"  class="form-control" required>
+                    <label for="fecha_justificacion" class="form-label">Fecha justificación</label>
+                    <input type="date" id="fecha_justificacion" name="fecha_justificacion"  class="form-control" required>
                 </div>
 
                 <div class="col-md-4 col-6">

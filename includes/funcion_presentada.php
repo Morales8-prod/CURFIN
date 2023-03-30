@@ -1,21 +1,9 @@
 <?php
-    function cambiar_fase_provisional($miPDO, $id_subvenciones, $importe_concedido, $fecha_provisional){
 
-        if ($id_subvenciones == NULL || $importe_concedido== NULL || $fecha_provisional== NULL) {
-            return 0;
-        }else{
-            // Prepara UPDATE
-        $miConsulta = $miPDO->prepare("UPDATE subvenciones SET importe_concedido = $importe_concedido, fecha_provisional = '$fecha_provisional' WHERE id_subvenciones = $id_subvenciones;");
-    
-        // Ejecuta consulta
-        try {
-            $miConsulta->execute();
-        } catch (PDOException $e) {
-            echo "Error: $e";
-        }
-        
-    
-        return 1;    
-        }
+function cambio_fase_presentada($miPDO,$fecha_presentada,$importe_solicitado,$expediente_gestiona,$id_subvenciones){
+        $miConsulta = $miPDO->prepare("UPDATE subvenciones SET fecha_presentada = '$fecha_presentada',estado_subvencion = 'Presentada', importe_solicitado = $importe_solicitado, expediente_gestiona = '$expediente_gestiona' WHERE id_subvenciones = $id_subvenciones; ");
+        $miConsulta->execute();
+
     }
-?>
+
+ ?>   
