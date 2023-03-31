@@ -1,6 +1,6 @@
 <?php
-include ("funciones.php");
-include("funcion_presentada.php");
+// include ("funciones.php");
+include("modificacion_mosSub.php");
 include "config/database.php";
 // prueba funcion insertar 
 
@@ -10,6 +10,7 @@ include "config/database.php";
 // $color_estado = color_estado($miPDO,17);
 
 // echo "$color_estado";
-cambio_fase_presentada($miPDO,'2023-03-29', 4.000, 'SAM001', 22 );
-
+//cambio_fase_presentada($miPDO,'2023-03-29', 4.000, 'SAM001', 22 );
+$resultado = mostrar_subvenciones($miPDO, 'Justificada');
+var_dump($resultado);
 ?>

@@ -30,11 +30,18 @@ importe_solicitado = $importe_solicitado,
 importe_proyecto = $importe_proyecto,
 importe_concedido = $importe_concedido,
 estado_subvencion = '$estado_subvencion',
-expediente_gestiona = '$expediente_gestiona'
-id_proyectos = $id_proyectos
+expediente_gestiona = '$expediente_gestiona',
+id_proyecto = $id_proyecto,
+financiacion_organismo = $financiacion_organismo,
+financiacion_ayto = $financiacion_ayto
 
 WHERE 
 id_subvenciones = $id_subvenciones;
+
+--UPDATE id_proyecto tabla subvenciones
+--Vinculación de subvenciones con proyectos
+UPDATE subvenciones SET id_proyecto = $id_proyecto WHERE id_subvenciones = $id_subvenciones;
+
 
 --UPDATE SUBVENCIONES: ESTADO PRESENTADO
 UPDATE subvenciones SET fecha_presentada = '$fecha_presentada', importe_solicitado = $importe_solicitado, estado_subvencion = 'Presentado', expediente_gestiona = '$expediente_gestiona'
@@ -77,21 +84,37 @@ SELECT *, if(ISNULL(fecha_planteada),(if((fecha_creacion=0000-00-00),0,((DATEDIF
 --FORMATEO COLUMNA IMPORTE CONCEDIDO
 SELECT FORMAT(importe_concedido, 2, 'es_ES') AS ImporteConcedido_formt
 
+--COUNT subvenciones
+--Devuelve un dato numérico de cuántas subvenciones hay
+SELECT COUNT(*) FROM subvenciones;
+--Devuelve un dato numérico de las subvenciones aprobadas
+SELECT COUNT(*) FROM subvenciones WHERE estado_subvencion = 'Definitiva' OR estado_subvencion = 'Justificada';
+--Devuelve un dato numérico de las subvenciones denegadas
+SELECT COUNT(*) FROM subvenciones WHERE estado_subvencion = 'Denegada';
+
+
 --PROYECTOOOOOOOS
 
 --SELECT
 SELECT * FROM proyectos;
 
 --INSERT INTO proyectos
-INSERT INTO proyectos(id_proyectos, nombre_proyectos, concejal, fecha_proyectos) VALUES (default, '$nombre_proyectos', '$concejal', '$fecha_proyectos');
+INSERT INTO proyectos(id_proyecto, nombre_proyecto, concejal, fecha_proyecto) VALUES (default, '$nombre_proyecto', '$concejal', '$fecha_proyecto');
 
 --LINEA PROYECTO
 SELECT * FROM linea_proyecto;
 
 --INSERT INTO linea proyectos
-INSERT INTO linea_proyectos(id_proyectos, linea_proyecto, descripcion_proyectos, importe_proyectos, fecha_provisional) VALUES ($id_proyectos, $linea_proyecto, '$descripcion_proyectos', $importe_proyectos, '$fecha_provisional');
+INSERT INTO linea_proyectos(id_proyecto, linea_proyecto, descripcion_linea, importe_linea) VALUES ($id_proyecto, $linea_proyecto, '$descripcion_linea', $importe_linea);
 
-UPDATE linea_proyectos SET linea_proyecto = $linea_proyecto, descripcion_proyectos = '$descripcion_proyectos', importe_proyectos = $importe_proyectos, fecha_provisional = '$fecha_provisional' WHERE (idproyectos = $idproyectos) AND (linea_proyectos = $linea_proyectos);
+UPDATE linea_proyectos SET linea_proyecto = $linea_proyecto, descripcion_linea = '$descripcion_linea', importe_linea = $importe_linea, WHERE (id_proyecto = $id_proyecto) AND (linea_proyecto = $linea_proyecto);
+
+
+
+
+--COUNT proyectos
+--Devuelve un dato numérico de los proyectos
+SELECT COUNT(*) FROM proyectos;
 
 
 

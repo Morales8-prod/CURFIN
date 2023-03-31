@@ -129,16 +129,9 @@
                         require '../includes/config/database.php';
 
                         // ------------- INCIO RECOGEMOS LOS DATOS DE TODAS LAS SUBVENCIONES Y LOS GUARDO EN $resultados -----------
-
-                        // Prepara SELECT
-
-                        $miConsulta = $miPDO->prepare('SELECT * FROM subvenciones ORDER BY id_subvenciones ASC;');
-
-                        //Ejecuta consulta
-
-                        $miConsulta->execute();
-
-                        $resultados = $miConsulta->fetchAll();
+                        include '../includes/funciones.php';
+                       
+                        $resultados = proyectos($miPDO);
 
                         // --------------- FIN RECOGEMOS LOS DATOS DE LAS SUBVENCIONES Y LOS GUARDO EN $resultados -----------------
 

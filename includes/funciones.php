@@ -162,6 +162,19 @@
       $miConsulta = $miPDO->prepare("SELECT * FROM linea_proyectos;");
       $miConsulta->execute();
     }
+
+
+
+
+      function m_proyectos(){
+
+      }
+
+
+
+
+
+
     //MODIFICAR LINEA PROYECTOS
      /* 
       @miPDO  conexión base de datos
@@ -510,8 +523,10 @@
       @miPDO conexion de la base de datos 
     */
     function mostrar_proyectos($miPDO){
-      $miConsulta = $miPDO->prepare("SELECT * FROM proyectos;");
+      $miConsulta = $miPDO->prepare("SELECT * FROM subvenciones ORDER BY id_subvenciones ASC;");
       $miConsulta->execute();
+      $resultados = $miConsulta->fetchAll();
+      return $resultados;
     }
   //MODIFICAR PROYECTOS 
     
@@ -541,20 +556,22 @@
 
           switch ($resultado) {
               case 'Planteada':
-                      $array = ["Presentada","Provisional", "Definitiva","Justificada"];
+                      $array = ["Presentada","Provisional", "Definitiva","Justificada","Denegada"];
                       return $array;
                   break;
 
               case 'Presentada':
-                   $array = ["Provisional", "Definitiva","Justificada"];
+                   $array = ["Provisional", "Definitiva","Justificada","Denegada"];
                    return $array;
               break;
 
               case 'Provisional':
-                  $array = ["Definitiva","Justificada"];
+                  $array = ["Definitiva","Justificada","Denegada"];
                   return $array;
               break;
 
+
+              ///
               case 'Definitiva':
                   $array = ["Justificada"];
                   return $array;
@@ -566,13 +583,61 @@
             break;
                   
               default:
-              $array = ["Planteada" , "Presentada", "Provisional", "Definitiva"];
+              $array = ["Planteada" , "Presentada", "Provisional", "Definitiva","Justificada","Denegada"];
               return $array;
                   break;
            }
     }
 
+    function proyectos($miPDO){
+      $miConsulta = $miPDO->prepare('SELECT * FROM subvenciones ORDER BY id_subvenciones ASC;');
+                        $miConsulta->execute();
+                        $resultados = $miConsulta->fetchAll();
+                        return $resultados;
+    }
+    
 
 
+      function contadores_select($miPDO){
 
-?>
+
+      /*
+
+      --Devuelve un dato numérico de cuántas subvenciones hay
+      SELECT COUNT(*) FROM subvenciones;
+      --Devuelve un dato numérico de las subvenciones aprobadas
+      SELECT COUNT(*) FROM subvenciones WHERE estado_subvencion = 'Definitiva' OR estado_subvencion = 'Justificada';
+      --Devuelve un dato numérico de las subvenciones denegadas
+      SELECT COUNT(*) FROM subvenciones WHERE estado_subvencion = 'Denegada';
+      --Devuelve un dato numérico de los proyectos
+      SELECT COUNT(*) FROM proyectos;
+
+      */
+
+        $consultaSubvecion = $miPDO->prepare('SELECT COUNT(*) FROM subvenciones;');
+        $consultaSubvecion->execute();
+        $subvenciones = $consultaSubvecion->fetchColumn();
+
+        $consultaDefinitiva = $miPDO->prepare("SELECT COUNT(*) FROM subvenciones WHERE estado_subvencion = 'Definitiva' OR estado_subvencion = 'Justificada';");
+        $consultaDefinitiva->execute();
+        $defintiva = $consultaDefinitiva->fetchColumn();
+
+        $consultaDenega = $miPDO->prepare("SELECT COUNT(*) FROM subvenciones WHERE estado_subvencion = 'Denegada';");
+        $consultaDenega->execute();
+        $denegada = $consultaDenega->fetchColumn();
+
+        $consultaProyectos = $miPDO->prepare('SELECT COUNT(*) FROM proyectos;');
+        $consultaProyectos->execute();
+        $proyectos = $consultaProyectos->fetchColumn();
+
+
+        $cabecera = array(
+          "subvenciones" => $subvenciones,
+          "definitiva" => $defintiva,
+          "denegada" => $denegada,
+          "proyectos" => $proyectos
+        );
+
+        return $cabecera;
+      }
+   

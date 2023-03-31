@@ -1,7 +1,7 @@
 <?php
-// require_once '../init.php';  //make sure this path is correct!
-// require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
-// if (!securePage($_SERVER['PHP_SELF'])){die();}
+require_once '../init.php';  //make sure this path is correct!
+require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
+if (!securePage($_SERVER['PHP_SELF'])){die();}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,8 +12,7 @@
     <title>Subvenciones</title>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap_5_3/css/bootstrap.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- FUENTES DE GOOGLE -->
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"> -->
@@ -21,7 +20,7 @@
     <!-- DATA TABLE -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
     <!-- ESTILO PERSONALIZADO -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body id="page-top">
@@ -39,7 +38,7 @@
 
     <!--- BIENVENIDO ------>
 
-    <div class="d-flex flex-column" style="margin-top: 6rem;width:auto!important" id="content-wrapper">
+    <div class="d-flex flex-column" style="margin-top: 6rem" id="content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">

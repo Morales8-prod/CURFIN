@@ -111,11 +111,12 @@
                 <div class="row g-3 mt-3">
                 </div>
                 <div class="d-grid">
-                <button type="submit" class="btn btn-success mb-3">volver</button>
+                <a class="btn btn-primary" href="../../index.php" role="button">Volver</a>
                 </div>
         </form>
     </div>
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </html>
